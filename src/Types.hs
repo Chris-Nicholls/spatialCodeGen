@@ -1,58 +1,63 @@
 module Types where
 
+import GHC.Generics
+import Data.Text(Text)
 
 data AST = AST {
-    ref  :: SourceReference, 
+    sourceReference :: SourceReference, 
     completePath :: CompletePath,
     canonicalName :: CanonicalName,
     package :: Package,
-    enums :: [EnumDefinition],
-    types :: [TypeDefinition],
-    components :: [ComponentDefinition]
-}
+    enumDefinitions :: [EnumDefinition],
+    typeDefinitions :: [TypeDefinition],
+    componentDefinitions :: [ComponentDefinition]
+} deriving (Generic, Show, Eq)
 
 
-data SourceReference = SourceReference{line :: Int, column :: Int}
-newtype CompletePath = CompletePath String
-newtype CanonicalName = CanonicalName String
-newtype Package = Package [String]
-newtype Name = Name String
-newtype QualifiedName = QualifiedName [String]
-newtype Id = Id Int
+data SourceReference = SourceReference{line :: Int, column :: Int} deriving (Generic, Show, Eq)
+newtype CompletePath = CompletePath Text deriving (Generic, Show, Eq)
+newtype CanonicalName = CanonicalName Text deriving (Generic, Show, Eq)
+newtype Package = Package [Text] deriving (Generic, Show, Eq)
+newtype Name = Name Text deriving (Generic, Show, Eq)
+newtype QualifiedName = QualifiedName [Text] deriving (Generic, Show, Eq)
+newtype Id = Id Int deriving (Generic, Show, Eq)
 
-newtype RequestType = RequestType Type
-newtype ResponseType = ResponseType Type
-newtype DataDefinition = DataDefinition Type
+newtype RequestType = RequestType Type deriving (Generic, Show, Eq)
+newtype ResponseType = ResponseType Type deriving (Generic, Show, Eq)
+newtype DataDefinition = DataDefinition Type deriving (Generic, Show, Eq)
 
 
 data ComponentDefinition = ComponentDefinition{
-    ref :: SourceReference,
+    sourceReference :: SourceReference,
     name :: Name,
     qualifiedName :: QualifiedName,
     id :: Id,
-    dataDefs :: DataDefinition,
-    events :: [EventDefinition],
-    commands :: [CommandDefinition]}
+    -- dataDefinitions :: DataDefinition,
+    eventDefinitions :: [EventDefinition],
+    commandDefinitions :: [CommandDefinition]}
+    deriving (Generic, Show, Eq)
 
 
 data EventDefinition = EventDefinition {
-    ref :: SourceReference,
+    sourceReference :: SourceReference,
     name :: Name,
     typeDef :: Type
-}
+} deriving (Generic, Show, Eq)
 
 
 data CommandDefinition = CommandDefinition{
-    ref :: SourceReference,
+    sourceReference :: SourceReference,
     name :: Name,
     request :: RequestType,
     response :: ResponseType
-}
+} deriving (Generic, Show, Eq)
 
 
 data Type = 
-    BuiltIn {ref :: SourceReference, builtin :: BuiltInType} |  
-    UserType{ref :: SourceReference, userType :: QualifiedName } 
+    BuiltIn {sourceReference :: SourceReference, builtin :: BuiltInType} |  
+    UserType{sourceReference :: SourceReference, userType :: QualifiedName }
+   deriving (Generic, Show, Eq)
+
 
 
 data BuiltInType = 
@@ -61,39 +66,52 @@ data BuiltInType =
     | Int32 | Int64
     | Sint32 | Sint64 
     | Fixed32 | Fixed64 | Sfixed32 | Sfixed64
-    | TFloat | TDouble
+    | Float | TDouble
     | TString | Bytes
     | EntityId | Coordinates | Vector3d | Vector3f
+    deriving (Generic, Show, Eq)
 
 
 data TypeDefinition = TypeDefinition {
-    ref :: SourceReference,
+    sourceReference :: SourceReference,
     name :: Name,
     qualifiedName :: QualifiedName,
-    enums :: [EnumDefinition],
-    types :: [TypeDefinition],
-    fields :: [FieldDefinition]
-}
+    enumDefinitions :: [EnumDefinition],
+    typeDefinitions :: [TypeDefinition],
+    fieldDefinitions :: [FieldDefinition]
+} deriving (Generic, Show, Eq)
 
 
 data EnumDefinition = EnumDefinition {
-    ref :: SourceReference,
+    sourceReference :: SourceReference,
     name :: Name,
     qualifiedName :: QualifiedName
-}
+} deriving (Generic, Show, Eq)
 
 data FieldDefinition = FieldDefinition {
-    ref :: SourceReference,
+    sourceReference :: SourceReference,
     name :: Name,
     number :: Int,
     fieldType :: FieldType
-}
+} deriving (Generic, Show, Eq)
 
 
 data FieldType = 
-      SingularType {valueType :: Type} 
-    | Option {valueType :: Type}
-    | List {valueType :: Type}
-    | Map {keyType :: Type, valueType :: Type}
+       Singular {singularType :: Type} 
+     | Option {optionType :: Type}
+     | List {listType :: ValueType}
+     | Map {mapType :: MapType} 
+     deriving (Generic, Show, Eq)
 
 
+data SingularType = SingularType {
+    sourceReference :: SourceReference,
+    builtInType :: BuiltInType
+}    deriving (Generic, Show, Eq)
+
+data ValueType = ValueType {valueType :: Type }
+    deriving (Generic, Show, Eq)
+
+
+data MapType = MapType {keyType :: Type, valueType :: Type}
+    deriving (Generic, Show, Eq)

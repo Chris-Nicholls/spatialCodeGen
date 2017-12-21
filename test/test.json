@@ -1,0 +1,74 @@
+{
+ "sourceReference": {
+  "line": 1,
+  "column": 1
+ },
+ "completePath": "..\\..\\schema\\test\\test.schema",
+ "canonicalName": "test/test.schema",
+ "package": "test",
+ "enumDefinitions": [],
+ "typeDefinitions": [
+  {
+   "sourceReference": {
+    "line": 5,
+    "column": 2
+   },
+   "name": "TestData",
+   "qualifiedName": "test.TestData",
+   "enumDefinitions": [],
+   "typeDefinitions": [],
+   "fieldDefinitions": [
+    {
+     "sourceReference": {
+      "line": 5,
+      "column": 2
+     },
+     "name": "size",
+     "number": 1,
+     "singularType": {
+      "sourceReference": {
+       "line": 5,
+       "column": 2
+      },
+      "builtInType": "float"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 6,
+      "column": 2
+     },
+     "name": "speed",
+     "number": 2,
+     "singularType": {
+      "sourceReference": {
+       "line": 6,
+       "column": 2
+      },
+      "builtInType": "float"
+     }
+    }
+   ]
+  }
+ ],
+ "componentDefinitions": [
+  {
+   "sourceReference": {
+    "line": 3,
+    "column": 1
+   },
+   "name": "Test",
+   "qualifiedName": "test.Test",
+   "id": 1000,
+   "dataDefinition": {
+    "sourceReference": {
+     "line": 5,
+     "column": 2
+    },
+    "userType": "test.TestData"
+   },
+   "eventDefinitions": [],
+   "commandDefinitions": []
+  }
+ ]
+}

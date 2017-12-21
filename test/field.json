@@ -1,0 +1,15 @@
+{
+     "sourceReference": {
+      "line": 4,
+      "column": 3
+     },
+     "name": "x",
+     "number": 1,
+     "singularType": {
+      "sourceReference": {
+       "line": 4,
+       "column": 3
+      },
+      "builtInType": "float"
+     }
+}
