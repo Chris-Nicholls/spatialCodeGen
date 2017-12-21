@@ -32,7 +32,7 @@ data ComponentDefinition = ComponentDefinition{
     name :: Name,
     qualifiedName :: QualifiedName,
     id :: Id,
-    -- dataDefinitions :: DataDefinition,
+    dataDefinitions :: Maybe DataDefinition,
     eventDefinitions :: [EventDefinition],
     commandDefinitions :: [CommandDefinition]}
     deriving (Generic, Show, Eq)
