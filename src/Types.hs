@@ -48,8 +48,8 @@ data EventDefinition = EventDefinition {
 data CommandDefinition = CommandDefinition{
     sourceReference :: SourceReference,
     name :: Name,
-    request :: RequestType,
-    response :: ResponseType
+    requestType :: RequestType,
+    responseType :: ResponseType
 } deriving (Generic, Show, Eq)
 
 
@@ -98,7 +98,7 @@ data FieldDefinition = FieldDefinition {
 
 data FieldType = 
        Singular {singularType :: Type} 
-     | Option {optionType :: Type}
+     | Option {optionType :: ValueType}
      | List {listType :: ValueType}
      | Map {mapType :: MapType} 
      deriving (Generic, Show, Eq)

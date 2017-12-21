@@ -17,6 +17,7 @@ main = runTestTT $ TestList
     ,testCase $ (testDecode "test/Vector3.json" :: IO AST)
     ,testCase $ (testDecode "test/test.json" :: IO AST)
     ,testCase $ (testDecode "test/standard_library.json" :: IO AST)
+    ,testCase $ (testDecode "test/test2.json" :: IO AST)
     ]
        
 

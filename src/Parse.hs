@@ -47,12 +47,20 @@ instance FromJSON BuiltInType where
     parseJSON s = case s of 
         String "float" -> return Float
         String "double" -> return TDouble
-        String "int32" -> return Sint32
-        String "int64" -> return Sint64
+        String "sint32" -> return Sint32
+        String "sint64" -> return Sint64
+        String "int32" -> return Int32
+        String "int64" -> return Int64
         String "uint32" -> return Uint32
         String "uint64" -> return Uint64
         String "bool" -> return TBool
         String "string" -> return TString
+        String "fixed32" -> return Fixed32
+        String "fixed64" -> return Fixed64
+        String "sfixed32" -> return Sfixed32
+        String "sfixed64" -> return Sfixed64
+        String "EntityId" -> return EntityId
+        String "bytes" -> return Bytes
         s -> fail ("Unknown type: " ++ show s)
     
 

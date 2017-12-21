@@ -1,0 +1,493 @@
+{
+ "sourceReference": {
+  "line": 1,
+  "column": 1
+ },
+ "completePath": "..\\..\\schema\\deer\\testing.schema",
+ "canonicalName": "deer/testing.schema",
+ "package": "test",
+ "enumDefinitions": [
+  {
+   "sourceReference": {
+    "line": 6,
+    "column": 1
+   },
+   "name": "TestEnum",
+   "qualifiedName": "test.TestEnum",
+   "valueDefinitions": [
+    {
+     "sourceReference": {
+      "line": 7,
+      "column": 2
+     },
+     "name": "A",
+     "value": 1
+    },
+    {
+     "sourceReference": {
+      "line": 8,
+      "column": 2
+     },
+     "name": "B",
+     "value": 2
+    }
+   ]
+  }
+ ],
+ "typeDefinitions": [
+  {
+   "sourceReference": {
+    "line": 33,
+    "column": 1
+   },
+   "name": "EmptyType",
+   "qualifiedName": "test.EmptyType",
+   "enumDefinitions": [],
+   "typeDefinitions": [],
+   "fieldDefinitions": []
+  },
+  {
+   "sourceReference": {
+    "line": 42,
+    "column": 1
+   },
+   "name": "Custom1",
+   "qualifiedName": "test.Custom1",
+   "enumDefinitions": [],
+   "typeDefinitions": [],
+   "fieldDefinitions": [
+    {
+     "sourceReference": {
+      "line": 44,
+      "column": 2
+     },
+     "name": "t",
+     "number": 1,
+     "optionType": {
+      "valueType": {
+       "sourceReference": {
+        "line": 44,
+        "column": 9
+       },
+       "builtInType": "string"
+      }
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 45,
+      "column": 2
+     },
+     "name": "m",
+     "number": 2,
+     "mapType": {
+      "keyType": {
+       "sourceReference": {
+        "line": 45,
+        "column": 6
+       },
+       "builtInType": "int32"
+      },
+      "valueType": {
+       "sourceReference": {
+        "line": 45,
+        "column": 12
+       },
+       "builtInType": "bool"
+      }
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 46,
+      "column": 2
+     },
+     "name": "l",
+     "number": 3,
+     "listType": {
+      "valueType": {
+       "sourceReference": {
+        "line": 46,
+        "column": 7
+       },
+       "builtInType": "string"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "sourceReference": {
+    "line": 50,
+    "column": 1
+   },
+   "name": "Custom2",
+   "qualifiedName": "test.Custom2",
+   "enumDefinitions": [],
+   "typeDefinitions": [],
+   "fieldDefinitions": [
+    {
+     "sourceReference": {
+      "line": 52,
+      "column": 2
+     },
+     "name": "t2",
+     "number": 1,
+     "singularType": {
+      "sourceReference": {
+       "line": 52,
+       "column": 2
+      },
+      "userType": "test.Custom1"
+     }
+    }
+   ]
+  },
+  {
+   "sourceReference": {
+    "line": 13,
+    "column": 2
+   },
+   "name": "Test1Data",
+   "qualifiedName": "test.Test1Data",
+   "enumDefinitions": [],
+   "typeDefinitions": [],
+   "fieldDefinitions": [
+    {
+     "sourceReference": {
+      "line": 13,
+      "column": 2
+     },
+     "name": "a",
+     "number": 1,
+     "optionType": {
+      "valueType": {
+       "sourceReference": {
+        "line": 13,
+        "column": 9
+       },
+       "builtInType": "string"
+      }
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 14,
+      "column": 2
+     },
+     "name": "f2",
+     "number": 2,
+     "singularType": {
+      "sourceReference": {
+       "line": 14,
+       "column": 2
+      },
+      "builtInType": "bool"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 15,
+      "column": 2
+     },
+     "name": "f3",
+     "number": 3,
+     "singularType": {
+      "sourceReference": {
+       "line": 15,
+       "column": 2
+      },
+      "builtInType": "uint32"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 16,
+      "column": 2
+     },
+     "name": "f4",
+     "number": 4,
+     "singularType": {
+      "sourceReference": {
+       "line": 16,
+       "column": 2
+      },
+      "builtInType": "uint64"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 17,
+      "column": 2
+     },
+     "name": "f5",
+     "number": 5,
+     "singularType": {
+      "sourceReference": {
+       "line": 17,
+       "column": 2
+      },
+      "builtInType": "sint32"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 18,
+      "column": 2
+     },
+     "name": "f6",
+     "number": 6,
+     "singularType": {
+      "sourceReference": {
+       "line": 18,
+       "column": 2
+      },
+      "builtInType": "sint64"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 19,
+      "column": 2
+     },
+     "name": "f7",
+     "number": 7,
+     "singularType": {
+      "sourceReference": {
+       "line": 19,
+       "column": 2
+      },
+      "builtInType": "fixed32"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 20,
+      "column": 2
+     },
+     "name": "f8",
+     "number": 8,
+     "singularType": {
+      "sourceReference": {
+       "line": 20,
+       "column": 2
+      },
+      "builtInType": "fixed64"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 21,
+      "column": 2
+     },
+     "name": "f9",
+     "number": 9,
+     "singularType": {
+      "sourceReference": {
+       "line": 21,
+       "column": 2
+      },
+      "builtInType": "sfixed32"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 22,
+      "column": 2
+     },
+     "name": "f10",
+     "number": 10,
+     "singularType": {
+      "sourceReference": {
+       "line": 22,
+       "column": 2
+      },
+      "builtInType": "sfixed64"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 23,
+      "column": 2
+     },
+     "name": "f11",
+     "number": 11,
+     "singularType": {
+      "sourceReference": {
+       "line": 23,
+       "column": 2
+      },
+      "builtInType": "float"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 24,
+      "column": 2
+     },
+     "name": "f12",
+     "number": 12,
+     "singularType": {
+      "sourceReference": {
+       "line": 24,
+       "column": 2
+      },
+      "builtInType": "double"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 25,
+      "column": 2
+     },
+     "name": "f13",
+     "number": 13,
+     "singularType": {
+      "sourceReference": {
+       "line": 25,
+       "column": 2
+      },
+      "builtInType": "EntityId"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 26,
+      "column": 2
+     },
+     "name": "f14",
+     "number": 14,
+     "singularType": {
+      "sourceReference": {
+       "line": 26,
+       "column": 2
+      },
+      "builtInType": "bytes"
+     }
+    },
+    {
+     "sourceReference": {
+      "line": 27,
+      "column": 2
+     },
+     "name": "f15",
+     "number": 15,
+     "singularType": {
+      "sourceReference": {
+       "line": 27,
+       "column": 2
+      },
+      "builtInType": "string"
+     }
+    }
+   ]
+  },
+  {
+   "sourceReference": {
+    "line": 61,
+    "column": 1
+   },
+   "name": "Test4Data",
+   "qualifiedName": "test.Test4Data",
+   "enumDefinitions": [],
+   "typeDefinitions": [],
+   "fieldDefinitions": []
+  }
+ ],
+ "componentDefinitions": [
+  {
+   "sourceReference": {
+    "line": 11,
+    "column": 1
+   },
+   "name": "Test1",
+   "qualifiedName": "test.Test1",
+   "id": 1234,
+   "dataDefinition": {
+    "sourceReference": {
+     "line": 13,
+     "column": 2
+    },
+    "userType": "test.Test1Data"
+   },
+   "eventDefinitions": [],
+   "commandDefinitions": []
+  },
+  {
+   "sourceReference": {
+    "line": 36,
+    "column": 1
+   },
+   "name": "Test2",
+   "qualifiedName": "test.Test2",
+   "id": 12345,
+   "dataDefinition": {
+    "sourceReference": {
+     "line": 37,
+     "column": 7
+    },
+    "userType": "test.EmptyType"
+   },
+   "eventDefinitions": [],
+   "commandDefinitions": []
+  },
+  {
+   "sourceReference": {
+    "line": 55,
+    "column": 1
+   },
+   "name": "Test3",
+   "qualifiedName": "test.Test3",
+   "id": 123456,
+   "dataDefinition": {
+    "sourceReference": {
+     "line": 57,
+     "column": 7
+    },
+    "userType": "test.Custom2"
+   },
+   "eventDefinitions": [],
+   "commandDefinitions": []
+  },
+  {
+   "sourceReference": {
+    "line": 61,
+    "column": 1
+   },
+   "name": "Test4",
+   "qualifiedName": "test.Test4",
+   "id": 12343,
+   "dataDefinition": {
+    "sourceReference": {
+     "line": 61,
+     "column": 1
+    },
+    "userType": "test.Test4Data"
+   },
+   "eventDefinitions": [],
+   "commandDefinitions": [
+    {
+     "sourceReference": {
+      "line": 65,
+      "column": 2
+     },
+     "name": "test_command",
+     "requestType": {
+      "sourceReference": {
+       "line": 65,
+       "column": 31
+      },
+      "userType": "test.Custom1"
+     },
+     "responseType": {
+      "sourceReference": {
+       "line": 65,
+       "column": 10
+      },
+      "userType": "test.Custom2"
+     }
+    }
+   ]
+  }
+ ]
+}
