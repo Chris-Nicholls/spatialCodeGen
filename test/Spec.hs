@@ -2,9 +2,10 @@ import Test.HUnit
 import Data.Monoid
 import Control.Monad
 
-import Types 
+import JsonTypes 
 import Parse
 import Data.Aeson
+import Conversion
 
 import qualified Data.ByteString.Lazy as B
 
@@ -13,21 +14,13 @@ jsonFile = "test/sourceReference.json"
 
 main :: IO Counts
 main = runTestTT $ TestList 
-    [testCase $ (testDecode "test/field.json" :: IO FieldDefinition)
-    ,testCase $ (testDecode "test/Vector3.json" :: IO AST)
-    ,testCase $ (testDecode "test/test.json" :: IO AST)
-    ,testCase $ (testDecode "test/standard_library.json" :: IO AST)
-    ,testCase $ (testDecode "test/test2.json" :: IO AST)
+    [testCase $ (testDecode "test/json/field.json" :: IO FieldDefinition)
+    ,testCase $ (testDecode "test/json/Vector3.json" :: IO AST)  
+    ,testCase $ (testDecode "test/json/test.json" :: IO AST)
+    ,testCase $ (testDecode "test/json/standard_library.json" :: IO AST)
+    ,testCase $ ((testDecode "test/json/test2.json" :: IO AST) )
     ]
        
-
-testFile  :: forall a. (Eq a, FromJSON a, Show a) =>  String -> a -> String -> Test
-testFile file test name = TestCase $  do 
-    bs <- B.readFile file
-    let js = eitherDecode bs ::  Either String a
-    assertEqual name (Right test) js
-
-
 
 testDecode  :: forall a. (Eq a, FromJSON a, Show a) =>  String -> IO a
 testDecode file =  do 
@@ -38,5 +31,5 @@ testDecode file =  do
         Left e -> assertFailure e
     
 
+testCase a = TestCase $ (a  >> return ())
 
-testCase a = TestCase $ (a >> return ())

@@ -1,4 +1,4 @@
-module Types where
+module JsonTypes where
 
 import GHC.Generics
 import Data.Text(Text)
@@ -14,7 +14,7 @@ data AST = AST {
 } deriving (Generic, Show, Eq)
 
 
-data SourceReference = SourceReference{line :: Int, column :: Int} deriving (Generic, Show, Eq)
+data SourceReference = SourceReference{line :: Int, column :: Int} deriving (Generic, Show, Eq, Ord)
 newtype CompletePath = CompletePath Text deriving (Generic, Show, Eq)
 newtype CanonicalName = CanonicalName Text deriving (Generic, Show, Eq)
 newtype Package = Package [Text] deriving (Generic, Show, Eq)
@@ -32,7 +32,7 @@ data ComponentDefinition = ComponentDefinition{
     name :: Name,
     qualifiedName :: QualifiedName,
     id :: Id,
-    dataDefinitions :: Maybe DataDefinition,
+    dataDefinition :: Maybe DataDefinition,
     eventDefinitions :: [EventDefinition],
     commandDefinitions :: [CommandDefinition]}
     deriving (Generic, Show, Eq)
@@ -57,7 +57,6 @@ data Type =
     BuiltIn {sourceReference :: SourceReference, builtin :: BuiltInType} |  
     UserType{sourceReference :: SourceReference, userType :: QualifiedName }
    deriving (Generic, Show, Eq)
-
 
 
 data BuiltInType = 
@@ -85,8 +84,16 @@ data TypeDefinition = TypeDefinition {
 data EnumDefinition = EnumDefinition {
     sourceReference :: SourceReference,
     name :: Name,
-    qualifiedName :: QualifiedName
+    qualifiedName :: QualifiedName,
+    valueDefinitions :: [EnumValue]
 } deriving (Generic, Show, Eq)
+
+data EnumValue = EnumValue {
+    sourceReference :: SourceReference,
+    name :: Name,
+    value :: Int
+} deriving (Generic, Show, Eq)
+
 
 data FieldDefinition = FieldDefinition {
     sourceReference :: SourceReference,

@@ -3,7 +3,7 @@ module Parse where
 import Data.Aeson
 import Data.Aeson.Types(Parser)
 import GHC.Generics
-import Types
+import JsonTypes
 import Data.Maybe(fromMaybe)
 import Control.Monad(liftM2, liftM3)
 
@@ -29,6 +29,7 @@ instance FromJSON EventDefinition
 instance FromJSON CommandDefinition 
 instance FromJSON TypeDefinition 
 instance FromJSON EnumDefinition 
+instance FromJSON EnumValue
 instance FromJSON ValueType
 instance FromJSON MapType 
 
